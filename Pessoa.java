@@ -1,6 +1,9 @@
 package SystemSale;
 
 public class Pessoa {
+    public Pessoa() {
+    }
+
     private String nome;
     private String cpf;
     private String email;
