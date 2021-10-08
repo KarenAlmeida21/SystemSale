@@ -12,6 +12,8 @@ public class ServiceVenda {
         return venda;
     }
 
+
+
     public static void exibirVenda(){
         for (Venda percorrerList:vendaList) {
             System.out.println(percorrerList);

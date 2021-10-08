@@ -1,7 +1,6 @@
 package SystemSale;
 
 public class Cliente extends Pessoa {
-
     public Cliente() {
     }
 
