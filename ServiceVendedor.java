@@ -12,6 +12,15 @@ public class ServiceVendedor {
         vendedorList.add(vendedor);
         return vendedor;
     }
+
+    public static List<Vendedor> getVendedorList() {
+        return vendedorList;
+    }
+
+    public static void setVendedorList(List<Vendedor> vendedorList) {
+        ServiceVendedor.vendedorList = vendedorList;
+    }
+
     //exibir lista de vendedores
     public static void exibirVendedor(){
         for (Vendedor percorrerList: vendedorList) {

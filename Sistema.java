@@ -9,8 +9,9 @@ public class Sistema {
     }
 
     public static void menu() {
-        System.out.println("Digite 1 para cadastrar uma venda");
-        System.out.println("Digite 2 para exibir os dados da venda");
+        System.out.println("Digite 1 para cadastrar consumidor");
+        System.out.println("Digite 2 para cadastrar vendedor");
+        System.out.println("Digite 3 para cadastrar venda");
         System.out.println("Digite 3 para exibir os consumidores");
         System.out.println("Digite 4 para exibir vendedores cadastrados");
         System.out.println("Digite 5 para sair");
