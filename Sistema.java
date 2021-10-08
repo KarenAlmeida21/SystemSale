@@ -25,5 +25,5 @@ public static Vendedor cadastrarVendedor(){
         return ServiceVendedor.cadastrarVendedor(nomeVendedor,cpfVendedor,emailVendedor);
 }
 
-}
+
 }

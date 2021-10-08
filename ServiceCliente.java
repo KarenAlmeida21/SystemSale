@@ -10,5 +10,12 @@ public class ServiceCliente {
        clientesList.add(cliente);
        return cliente;
     }
+    public static void exibirCliente (){
+        for (Cliente percorrerList:clientesList) {
+            System.out.println(percorrerList);
+
+        }
+
+    }
 
 }
