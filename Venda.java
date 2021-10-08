@@ -6,35 +6,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Venda {
-    public List<Cliente> clienteList = new ArrayList<>();
-    public List<Vendedor> vendedorList = new ArrayList<>();
+    private Vendedor vendedor;
+    private Cliente cliente;
     private String DataDaCompra;
     private double ValorDaCompra;
 
-    public Venda() {
-    }
 
-    public Venda(List<Cliente> clienteList, List<Vendedor> vendedorList, String dataDaCompra, double valorDaCompra) {
-        this.clienteList = clienteList;
-        this.vendedorList = vendedorList;
+
+    public Venda(Vendedor vendedor, Cliente cliente, String dataDaCompra, double valorDaCompra) {
+        this.vendedor = vendedor;
+        this.cliente = cliente;
         DataDaCompra = dataDaCompra;
         ValorDaCompra = valorDaCompra;
     }
 
-    public List<Cliente> getClienteList() {
-        return clienteList;
+    public Vendedor getVendedor() {
+        return vendedor;
     }
 
-    public void setClienteList(List<Cliente> clienteList) {
-        this.clienteList = clienteList;
+    public void setVendedor(Vendedor vendedor) {
+        this.vendedor = vendedor;
     }
 
-    public List<Vendedor> getVendedorList() {
-        return vendedorList;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setVendedorList(List<Vendedor> vendedorList) {
-        this.vendedorList = vendedorList;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public String getDataDaCompra() {
@@ -53,20 +52,14 @@ public class Venda {
         ValorDaCompra = valorDaCompra;
     }
 
-    public void adicionarCliente(Cliente novoCliente) {
-        getClienteList().add(novoCliente);
-    }
 
-    public void adicionarVendedor(Vendedor novoVendedor) {
-        getVendedorList().add(novoVendedor);
-    }
 
     @Override
     public String toString() {
-        return "\nVenda:" +
-                "\nClientes:" + clienteList +
-                "\nVendedores" + vendedorList +
-                "\nData da Compra" + DataDaCompra +
-                "\nValor da Compra" + ValorDaCompra;
+        return "Venda:" +
+                "\nVendedor:" + vendedor +
+                "\nCliente:" + cliente +
+                "\nDataDaCompra'" + DataDaCompra +
+                "\nValorDaCompra=" + ValorDaCompra;
     }
 }
