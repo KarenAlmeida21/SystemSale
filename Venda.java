@@ -1,11 +1,13 @@
 package SystemSale;
 
+import SistemaImobiliario.Funcionario;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Venda {
-    public List<Cliente>clienteList=new ArrayList<>();
-    public List<Vendedor>vendedorList=new ArrayList<>();
+    public List<Cliente> clienteList = new ArrayList<>();
+    public List<Vendedor> vendedorList = new ArrayList<>();
     private String DataDaCompra;
     private double ValorDaCompra;
 
@@ -49,6 +51,14 @@ public class Venda {
 
     public void setValorDaCompra(double valorDaCompra) {
         ValorDaCompra = valorDaCompra;
+    }
+
+    public void adicionarCliente(Cliente novoCliente) {
+        getClienteList().add(novoCliente);
+    }
+
+    public void adicionarVendedor(Vendedor novoVendedor) {
+        getVendedorList().add(novoVendedor);
     }
 
     @Override
