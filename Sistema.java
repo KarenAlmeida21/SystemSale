@@ -9,37 +9,40 @@ public class Sistema {
     }
 
     public static void menu() {
-        System.out.println("Digite 1 para cadastrar consumidor");
+        System.out.println("Digite 1 para cadastrar cliente");
         System.out.println("Digite 2 para cadastrar vendedor");
-        System.out.println("Digite 3 para cadastrar venda");
-        System.out.println("Digite 3 para exibir os consumidores");
-        System.out.println("Digite 4 para exibir vendedores cadastrados");
-        System.out.println("Digite 5 para sair");
+        System.out.println("Digite 3 para exibir clientes cadastrados");
+        System.out.println("Digite 4 para vendedores cadastrados");
     }
 
-    //
-    public static Cliente cadastrarCliente()throws Exception {
+    public static Cliente cadastrarCliente() throws Exception {
         String nomeCliente = obterDados("Digite o nome do cliente:").nextLine();
         String cpfCliente = obterDados("Digite o cpf do cliente:").nextLine();
         String emailCliente = obterDados("Digite o e-mail do cliente:").nextLine();
         return ServiceCliente.cadastrarCliente(nomeCliente, cpfCliente, emailCliente);
     }
 
-    public static Vendedor cadastrarVendedor()throws Exception {
+    public static Vendedor cadastrarVendedor() throws Exception {
         String nomeVendedor = obterDados("Digite o nome do vendedor:").nextLine();
         String cpfVendedor = obterDados("Digite o cpf do vendedor").nextLine();
         String emailVendedor = obterDados("Digite o e-mail do vendedor:").nextLine();
         return ServiceVendedor.cadastrarVendedor(nomeVendedor, cpfVendedor, emailVendedor);
     }
 
+
     public static Venda cadastrarVenda() throws Exception {
         String dataDaCompra = obterDados("Digite a data da compra").nextLine();
         double valorDaCompra = obterDados("Digite o valor da compra").nextDouble();
-        Vendedor vendedor = cadastrarVendedor();
-        Cliente cliente = cadastrarCliente();
-        return ServiceVenda.cadastrarVenda(dataDaCompra, valorDaCompra, cliente, vendedor);
+       String cpfVendedor = obterDados("Digite o CPF do vendedor responsável pela venda").nextLine();
+        String cpfCliente = obterDados("Digite o CPF do cliente que realizara a compra").nextLine();
+
+        return ServiceVenda.cadastrarVenda(dataDaCompra, valorDaCompra,cpfVendedor,cpfCliente);
 
     }
+
+
+
+
 
 
 }
