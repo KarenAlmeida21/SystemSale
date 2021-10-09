@@ -33,27 +33,35 @@ public class Sistema {
     public static Venda cadastrarVenda() throws Exception {
         String dataDaCompra = obterDados("Digite a data da compra").nextLine();
         double valorDaCompra = obterDados("Digite o valor da compra").nextDouble();
-       String cpfVendedor = obterDados("Digite o CPF do vendedor responsável pela venda").nextLine();
+        String cpfVendedor = obterDados("Digite o CPF do vendedor responsável pela venda").nextLine();
         String cpfCliente = obterDados("Digite o CPF do cliente que realizara a compra").nextLine();
 
-        return ServiceVenda.cadastrarVenda(dataDaCompra, valorDaCompra,cpfVendedor,cpfCliente);
+        return ServiceVenda.cadastrarVenda(dataDaCompra, valorDaCompra, cpfVendedor, cpfCliente);
 
     }
 
-    public static void Executar() {
+    public static void executar() throws Exception {
         boolean menu = true;
         menu();
         int opcaoMenu = obterDados("Digite a opção desejada:").nextInt();
-        while (menu){
+        while (menu) {
+            if (opcaoMenu == 1) {
+                cadastrarCliente();
+            }
+            if (opcaoMenu == 2) {
+                cadastrarVendedor();
+
+            } else if (opcaoMenu == 3) {
+                ServiceCliente.exibirCliente();
+
+            } else if (opcaoMenu == 4) {
+                ServiceVendedor.exibirVendedor();
+            }
 
         }
 
 
     }
-
-
-
-
 
 
 }

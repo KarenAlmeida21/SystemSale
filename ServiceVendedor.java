@@ -17,6 +17,7 @@ public class ServiceVendedor {
     //cadastrar vendedor
     public static Vendedor cadastrarVendedor(String nome, String cpf, String email) throws Exception {
         constatarVendedor(cpf);
+        constatarVendedorEmail(email);
         validarEmailVendedor(email);
         Vendedor vendedor = new Vendedor(nome, cpf, email);
         vendedorList.add(vendedor);
@@ -30,16 +31,13 @@ public class ServiceVendedor {
                 return percorrerList;
             }
         }
-        throw new Exception("Não Cadastrado");
-
-
+        throw new Exception("Vendedor Não Cadastrado");
     }
 
     public static void validarEmailVendedor(String email) throws Exception {
         if (!email.contains("@")) {
             throw new Exception("Verifique o e-mail e digite novamente");
         }
-
     }
 
     public static void constatarVendedor(String cpf) throws Exception {
@@ -49,11 +47,21 @@ public class ServiceVendedor {
             }
         }
     }
+    public static void constatarVendedorEmail(String email)throws Exception{
+        for (Vendedor vendedorReferencia:vendedorList){
+            if(vendedorReferencia.getEmail().equals(email)){
+                throw new Exception("E-mail já cadastrado.Verifique cadastro");
+            }
+        }
+    }
 
     public static void exibirVendedor() {
         for (Vendedor percorrerList : vendedorList) {
-            System.out.println(percorrerList);
-
+            if(vendedorList.size()==0){
+                System.out.println("Não há vendedores cadastrados");
+            }else {
+                System.out.println(percorrerList);
+            }
         }
     }
 
