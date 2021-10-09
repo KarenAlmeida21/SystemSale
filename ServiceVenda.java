@@ -33,9 +33,6 @@ public class ServiceVenda {
             if (compraReferencia.getCliente().getCpf().equals(cpf)) {
                 comprasDoCliente.add(compraReferencia);
 
-            }else{
-                throw new Exception("Cliente não encontrado");
-
             }
         }
         return comprasDoCliente;
