@@ -16,12 +16,13 @@ public class ServiceVendedor {
 
     //cadastrar vendedor
     public static Vendedor cadastrarVendedor(String nome, String cpf, String email) throws Exception {
+        validarEmailVendedor(email);
         Vendedor vendedor = new Vendedor(nome, cpf, email);
         vendedorList.add(vendedor);
         return vendedor;
     }
 
-    public static Vendedor verificarrVendedorCpf(String cpf) throws Exception {
+    public static Vendedor verificarVendedorCpf(String cpf) throws Exception {
         for (Vendedor percorrerList : vendedorList) {
             if (percorrerList.getCpf().equals(cpf)) {
 
@@ -32,6 +33,13 @@ public class ServiceVendedor {
 
 
     }
+    public static void validarEmailVendedor(String email)throws Exception{
+        if(!email.contains("@")){
+            throw new Exception("Verifique o e-mail e digite novamente");
+        }
+
+        }
+
 
 
     public static void exibirVendedor() {
