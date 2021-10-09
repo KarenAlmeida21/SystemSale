@@ -40,6 +40,16 @@ public class Sistema {
 
     }
 
+    public static void Executar() {
+        boolean menu = true;
+        menu();
+        int opcaoMenu = obterDados("Digite a opção desejada:").nextInt();
+        while (menu){
+
+        }
+
+
+    }
 
 
 

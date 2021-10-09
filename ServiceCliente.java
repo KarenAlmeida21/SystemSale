@@ -9,6 +9,7 @@ public class ServiceCliente {
 
     //cadastrar cliente na lista
     public static Cliente cadastrarCliente(String nome, String cpf, String email) throws Exception {
+        constatarCliente(cpf);
         validarEmailCliente(email);
         Cliente cliente = new Cliente(nome, cpf, email);
         clientesList.add(cliente);
@@ -23,12 +24,20 @@ public class ServiceCliente {
         }
         throw new Exception("Não Cadastrado");
     }
-    public static void validarEmailCliente(String email)throws Exception{
-        if(!email.contains("@")){
+
+    public static void validarEmailCliente(String email) throws Exception {
+        if (!email.contains("@")) {
             throw new Exception("Verifique o e-mail e digite novamente");
         }
     }
 
+    public static void constatarCliente(String cpf) throws Exception {
+        for (Cliente clienteReferencia : clientesList) {
+            if (clienteReferencia.getCpf().equals(cpf)) {
+                throw new Exception("CPF já cadastrado.Verifique cadastro");
+            }
+        }
+    }
 
 
     //exibir lista de cliente

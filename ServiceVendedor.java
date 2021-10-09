@@ -16,6 +16,7 @@ public class ServiceVendedor {
 
     //cadastrar vendedor
     public static Vendedor cadastrarVendedor(String nome, String cpf, String email) throws Exception {
+        constatarVendedor(cpf);
         validarEmailVendedor(email);
         Vendedor vendedor = new Vendedor(nome, cpf, email);
         vendedorList.add(vendedor);
@@ -33,14 +34,21 @@ public class ServiceVendedor {
 
 
     }
-    public static void validarEmailVendedor(String email)throws Exception{
-        if(!email.contains("@")){
+
+    public static void validarEmailVendedor(String email) throws Exception {
+        if (!email.contains("@")) {
             throw new Exception("Verifique o e-mail e digite novamente");
         }
 
+    }
+
+    public static void constatarVendedor(String cpf) throws Exception {
+        for (Vendedor vendedorReferencia : vendedorList) {
+            if (vendedorReferencia.getCpf().equals(cpf)) {
+                throw new Exception("CPF já cadastrado.Verifique cadastro");
+            }
         }
-
-
+    }
 
     public static void exibirVendedor() {
         for (Vendedor percorrerList : vendedorList) {
