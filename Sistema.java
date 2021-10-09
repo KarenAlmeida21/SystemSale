@@ -1,5 +1,7 @@
 package SystemSale;
 
+import java.sql.SQLOutput;
+import java.util.List;
 import java.util.Scanner;
 
 public class Sistema {
@@ -8,12 +10,6 @@ public class Sistema {
         return new Scanner(System.in);
     }
 
-    public static void menu() {
-        System.out.println("Digite 1 para cadastrar cliente");
-        System.out.println("Digite 2 para cadastrar vendedor");
-        System.out.println("Digite 3 para exibir clientes cadastrados");
-        System.out.println("Digite 4 para vendedores cadastrados");
-    }
 
     public static Cliente cadastrarCliente() throws Exception {
         String nomeCliente = obterDados("Digite o nome do cliente:").nextLine();
@@ -40,28 +36,19 @@ public class Sistema {
 
     }
 
-    public static void executar() throws Exception {
-        boolean menu = true;
-        menu();
-        int opcaoMenu = obterDados("Digite a opção desejada:").nextInt();
-        while (menu) {
-            if (opcaoMenu == 1) {
-                cadastrarCliente();
-            }
-            if (opcaoMenu == 2) {
-                cadastrarVendedor();
+    public static List<Venda> pesquisarVenda() {
+        String cpf = obterDados("Digite o CPF vendedor que deseja pesquisar:").nextLine();
+        List<Venda> vendasDoVendedor = ServiceVenda.pesquisarVendaCpf(cpf);
+        return vendasDoVendedor;
+    }
 
-            } else if (opcaoMenu == 3) {
-                ServiceCliente.exibirCliente();
-
-            } else if (opcaoMenu == 4) {
-                ServiceVendedor.exibirVendedor();
-            }
-
-        }
-
-
+    public static List<Venda> pesquisarCompra()throws Exception {
+        String cpf = obterDados("Digite o CPF do cliente que deseja pesquisar:").nextLine();
+        List<Venda> comprasDoCliente = ServiceVenda.pesquisarComprasCpf(cpf);
+        return comprasDoCliente;
     }
 
 
 }
+
+
