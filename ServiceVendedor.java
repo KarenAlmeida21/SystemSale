@@ -57,14 +57,14 @@ public class ServiceVendedor {
         }
     }
 
-    public static void exibirVendedor() {
-        for (Vendedor percorrerList : vendedorList) {
-            if (vendedorList.size() == 0) {
-                System.out.println("Não há vendedores cadastrados");
-            } else {
-                System.out.println(percorrerList);
-            }
-        }
-    }
+    public static List<Vendedor>exibirVendedor() {
+        List<Vendedor> vendedores = new ArrayList<>();
+        for (Vendedor vendedorReferencia:vendedorList) {
+            vendedorList.add(vendedorReferencia);
+            System.out.println(vendedorReferencia);
 
+        }
+        return vendedores;
+
+    }
 }

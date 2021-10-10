@@ -70,7 +70,7 @@ public class Sistema {
     public static void menuCliente() {
         System.out.println("Digite 1 para cadastrar novo cliente");
         System.out.println("Digite 2 para ver todos os cadastros de clientes");
-        System.out.println("Digite 3 para voltar ao menu anterior\n");
+        System.out.println("Digite 3 para voltar ao menu anterior");
 
     }
 
@@ -84,9 +84,13 @@ public class Sistema {
 
                 cadastrarCliente();
                 break;
-            }if (opcaoCliente == 2) {
+            }
+            if (opcaoCliente == 2) {
 
                 ServiceCliente.exibirClientes();
+                if(ServiceCliente.getClientesList().size()==0){
+                    System.out.println("Não há clientes cadastrados");
+                }
                 break;
 
             } else if (opcaoCliente == 3) {
@@ -94,7 +98,6 @@ public class Sistema {
                 menu = false;
                 executar();
             }
-            break;
         }
     }
 
@@ -118,16 +121,16 @@ public class Sistema {
             }
             if (opcaoVendedor == 2) {
                 ServiceVendedor.exibirVendedor();
+                if(ServiceVendedor.getVendedorList().size()==0){
+                    System.out.println("Não há vendedores cadastrados");
+                }
                 break;
             } else if (opcaoVendedor == 3) {
 
                 encerrarMenus();
                 menu = false;
                 executar();
-
-
             }
-            break;
         }
     }
 
@@ -168,19 +171,16 @@ public class Sistema {
             if (opcaoVenda == 4) {
 
                 System.out.println(pesquisarVenda());
-
                 break;
             }
             if (opcaoVenda == 5) {
-
 
                 encerrarMenus();
                 menu = false;
                 executar();
 
-
             }
-            break;
+
         }
 
     }
@@ -207,7 +207,6 @@ public class Sistema {
 
 
             }
-            break;
         }
     }
 

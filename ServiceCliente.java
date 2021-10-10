@@ -11,6 +11,9 @@ public class ServiceCliente {
         return clientesList;
     }
 
+    public static void setClientesList(List<Cliente> clientesList) {
+        ServiceCliente.clientesList = clientesList;
+    }
 
     //cadastrar cliente na lista
     public static Cliente cadastrarCliente(String nome, String cpf, String email) throws Exception {
@@ -22,6 +25,8 @@ public class ServiceCliente {
         return cliente;
     }
 
+
+
     public static Cliente verificarClienteCpf(String cpf) throws Exception {
         for (Cliente clienteReferencia : clientesList) {
             if (clienteReferencia.getCpf().equals(cpf)) {
@@ -31,11 +36,13 @@ public class ServiceCliente {
         throw new Exception("Cliente Não Cadastrado");
     }
 
+
     public static void validarEmailCliente(String email) throws Exception {
         if (!email.contains("@")) {
             throw new Exception("Verifique o e-mail e digite novamente");
         }
     }
+
 
     public static void constatarClienteCpf(String cpf) throws Exception {
         for (Cliente clienteReferencia : clientesList) {
@@ -44,6 +51,7 @@ public class ServiceCliente {
             }
         }
     }
+
 
     public static void constatarClienteEmail(String email) throws Exception {
         for (Cliente clienteReferencia : clientesList) {
@@ -55,15 +63,16 @@ public class ServiceCliente {
 
 
     //exibir lista de cliente
-    public static List<Cliente> exibirClientes() throws Exception {
-        for (Cliente clienteReferencia : clientesList) {
+    public static List<Cliente> exibirClientes(){
+    List<Cliente> clientes = new ArrayList<>();
+        for (Cliente clienteReferencia:clientesList) {
             clientesList.add(clienteReferencia);
             System.out.println(clienteReferencia);
+
         }
-
-
-        return clientesList;
+        return clientes;
     }
+
 
 
 }
