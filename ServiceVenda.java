@@ -40,12 +40,16 @@ public class ServiceVenda {
     }
 
 
-    public static void exibirVenda() {
-        for (Venda percorrerList : vendaList) {
-            System.out.println(percorrerList);
+    public static List<Venda> exibirVendas(){
+        List<Venda> vendas = new ArrayList<>();
+        for (Venda vendaReferencia : vendaList){
+            vendaList.add(vendaReferencia);
+            System.out.println(vendaReferencia);
 
         }
+        return vendas;
     }
+
 }
 
 

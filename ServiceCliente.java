@@ -49,11 +49,16 @@ public class ServiceCliente {
 
 
     //exibir lista de cliente
-    public static void exibirCliente() {
-        for (Cliente percorrerList : clientesList) {
-            System.out.println(percorrerList);
-        }
+    public static List<Cliente> exibirClientes()throws Exception{
+       // List<Cliente> clientes = new ArrayList<>();
+        for (Cliente clienteReferencia : clientesList){
+            clientesList.add(clienteReferencia);
+            System.out.println(clienteReferencia);}
+
+
+        return clientesList;
     }
+
 
 
 }

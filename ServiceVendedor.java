@@ -7,6 +7,7 @@ public class ServiceVendedor {
     private static List<Vendedor> vendedorList = new ArrayList<>();
 
     public static List<Vendedor> getVendedorList() {
+
         return vendedorList;
     }
 
@@ -47,9 +48,10 @@ public class ServiceVendedor {
             }
         }
     }
-    public static void constatarVendedorEmail(String email)throws Exception{
-        for (Vendedor vendedorReferencia:vendedorList){
-            if(vendedorReferencia.getEmail().equals(email)){
+
+    public static void constatarVendedorEmail(String email) throws Exception {
+        for (Vendedor vendedorReferencia : vendedorList) {
+            if (vendedorReferencia.getEmail().equals(email)) {
                 throw new Exception("E-mail já cadastrado.Verifique cadastro");
             }
         }
@@ -57,9 +59,9 @@ public class ServiceVendedor {
 
     public static void exibirVendedor() {
         for (Vendedor percorrerList : vendedorList) {
-            if(vendedorList.size()==0){
+            if (vendedorList.size() == 0) {
                 System.out.println("Não há vendedores cadastrados");
-            }else {
+            } else {
                 System.out.println(percorrerList);
             }
         }

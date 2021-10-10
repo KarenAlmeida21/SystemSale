@@ -4,10 +4,7 @@ public class Main {
     public static void main(String[] args) {
         try {
 
-            Sistema.cadastrarVendedor();
-            Sistema.cadastrarCliente();
-            Sistema.cadastrarVenda();
-            Sistema.pesquisarVenda();
+            Sistema.executar();
 
 
 
