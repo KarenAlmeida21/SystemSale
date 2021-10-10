@@ -42,18 +42,15 @@ public class ServiceVenda {
 
     }
 
-
-    public static List<Venda> exibirVendas() {
-        List<Venda> vendas = new ArrayList<>();
-        for (Venda vendaReferencia : vendaList) {
-            vendaList.add(vendaReferencia);
-            System.out.println(vendaReferencia);
+    //exibir lista de cliente
+    public static void exibirVenda() {
+        for (Venda vendedorReferencia : vendaList) {
+            System.out.println(vendedorReferencia);
 
         }
-        return vendas;
     }
-
 }
+
 
 
 

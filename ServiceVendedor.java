@@ -57,14 +57,11 @@ public class ServiceVendedor {
         }
     }
 
-    public static List<Vendedor>exibirVendedor() {
-        List<Vendedor> vendedores = new ArrayList<>();
+    public static void exibirVendedor() {
         for (Vendedor vendedorReferencia:vendedorList) {
-            vendedorList.add(vendedorReferencia);
+
             System.out.println(vendedorReferencia);
 
         }
-        return vendedores;
-
     }
 }

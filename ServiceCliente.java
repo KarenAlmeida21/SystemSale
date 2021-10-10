@@ -63,14 +63,11 @@ public class ServiceCliente {
 
 
     //exibir lista de cliente
-    public static List<Cliente> exibirClientes(){
-    List<Cliente> clientes = new ArrayList<>();
+    public static void exibirCliente(){
         for (Cliente clienteReferencia:clientesList) {
-            clientesList.add(clienteReferencia);
             System.out.println(clienteReferencia);
 
         }
-        return clientes;
     }
 
 

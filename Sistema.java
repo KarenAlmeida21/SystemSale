@@ -87,8 +87,8 @@ public class Sistema {
             }
             if (opcaoCliente == 2) {
 
-                ServiceCliente.exibirClientes();
-                if(ServiceCliente.getClientesList().size()==0){
+                ServiceCliente.exibirCliente();
+                if (ServiceCliente.getClientesList().size() == 0) {
                     System.out.println("Não há clientes cadastrados");
                 }
                 break;
@@ -100,7 +100,6 @@ public class Sistema {
             }
         }
     }
-
 
     public static void menuVendedor() {
         System.out.println("Digite 1 para cadastrar novo vendedor");
@@ -121,7 +120,7 @@ public class Sistema {
             }
             if (opcaoVendedor == 2) {
                 ServiceVendedor.exibirVendedor();
-                if(ServiceVendedor.getVendedorList().size()==0){
+                if (ServiceVendedor.getVendedorList().size() == 0) {
                     System.out.println("Não há vendedores cadastrados");
                 }
                 break;
@@ -157,7 +156,7 @@ public class Sistema {
             }
             if (opcaoVenda == 2) {
 
-                ServiceVenda.exibirVendas();
+                ServiceVenda.exibirVenda();
                 if (ServiceVenda.getVendaList().size() == 0) {
                     System.out.println("Não há vendas cadastradas\n");
                 }
@@ -180,9 +179,7 @@ public class Sistema {
                 executar();
 
             }
-
         }
-
     }
 
     public static void executar() throws Exception {
