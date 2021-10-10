@@ -9,6 +9,10 @@ public class ServiceVenda {
     public ServiceVenda() {
     }
 
+    public static List<Venda> getVendaList() {
+        return vendaList;
+    }
+
     public static Venda cadastrarVenda(String datadaCompra, double valorDaCompra, String cpfVendedor, String cpfCliente) throws Exception {
         Cliente cliente = ServiceCliente.verificarClienteCpf(cpfCliente);
         Vendedor vendedor = ServiceVendedor.verificarVendedorCpf(cpfVendedor);
@@ -17,7 +21,7 @@ public class ServiceVenda {
         return venda;
     }
 
-    public static List<Venda> pesquisarVendaCpf(String cpf) {
+    public static List<Venda> pesquisarVendaCpf(String cpf) throws Exception {
         List<Venda> vendasDoVendedor = new ArrayList<>();
         for (Venda vendaReferencia : vendasDoVendedor) {
             if (vendaReferencia.getVendedor().getCpf().equals(cpf)) {
@@ -27,12 +31,11 @@ public class ServiceVenda {
         return vendasDoVendedor;
     }
 
-    public static List<Venda> pesquisarComprasCpf(String cpf) throws Exception{
+    public static List<Venda> pesquisarComprasCpf(String cpf) throws Exception {
         List<Venda> comprasDoCliente = new ArrayList<>();
         for (Venda compraReferencia : comprasDoCliente) {
             if (compraReferencia.getCliente().getCpf().equals(cpf)) {
                 comprasDoCliente.add(compraReferencia);
-
             }
         }
         return comprasDoCliente;
@@ -40,9 +43,9 @@ public class ServiceVenda {
     }
 
 
-    public static List<Venda> exibirVendas(){
+    public static List<Venda> exibirVendas() {
         List<Venda> vendas = new ArrayList<>();
-        for (Venda vendaReferencia : vendaList){
+        for (Venda vendaReferencia : vendaList) {
             vendaList.add(vendaReferencia);
             System.out.println(vendaReferencia);
 

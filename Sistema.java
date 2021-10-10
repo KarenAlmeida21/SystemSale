@@ -11,11 +11,13 @@ public class Sistema {
     }
 
     public static void encerrarMenus() {
-        System.out.println("Você será direcionado ao menu anterior");
+        System.out.println("Você será direcionado ao menu anterior\n");
     }
+
     public static void encerrarMenuPrincipal() {
-        System.out.println("Obrigado.Volte sempre.");
+        System.out.println("Obrigado.Volte sempre.\n");
     }
+
 
     public static Cliente cadastrarCliente() throws Exception {
         String nomeCliente = obterDados("Digite o nome do cliente:").nextLine();
@@ -35,10 +37,10 @@ public class Sistema {
 
     public static Venda cadastrarVenda() throws Exception {
         String dataDaCompra = obterDados("Digite a data da compra").nextLine();
-        double valorDaCompra = obterDados("Digite o valor da compra").nextDouble();
+        System.out.println("Digite o valor da compra");
+        double valorDaCompra = obterDados("R$ ").nextDouble();
         String cpfVendedor = obterDados("Digite o CPF do vendedor responsável pela venda").nextLine();
         String cpfCliente = obterDados("Digite o CPF do cliente que realizara a compra").nextLine();
-
         return ServiceVenda.cadastrarVenda(dataDaCompra, valorDaCompra, cpfVendedor, cpfCliente);
 
     }
@@ -68,7 +70,7 @@ public class Sistema {
     public static void menuCliente() {
         System.out.println("Digite 1 para cadastrar novo cliente");
         System.out.println("Digite 2 para ver todos os cadastros de clientes");
-        System.out.println("Digite 3 para voltar ao menu anterior");
+        System.out.println("Digite 3 para voltar ao menu anterior\n");
 
     }
 
@@ -76,23 +78,26 @@ public class Sistema {
         boolean menu = true;
         menuCliente();
         int opcaoCliente = obterDados("\nDigite a opção desejada").nextInt();
-        while (menu)
+        while (menu) {
 
             if (opcaoCliente == 1) {
 
                 cadastrarCliente();
                 break;
-            } else if (opcaoCliente == 2) {
+            }if (opcaoCliente == 2) {
 
                 ServiceCliente.exibirClientes();
                 break;
 
-            } else if (opcaoCliente == 4) {
+            } else if (opcaoCliente == 3) {
                 encerrarMenus();
                 menu = false;
-                break;
+                executar();
             }
+            break;
+        }
     }
+
 
     public static void menuVendedor() {
         System.out.println("Digite 1 para cadastrar novo vendedor");
@@ -118,9 +123,11 @@ public class Sistema {
 
                 encerrarMenus();
                 menu = false;
-                break;
+                executar();
+
 
             }
+            break;
         }
     }
 
@@ -148,6 +155,9 @@ public class Sistema {
             if (opcaoVenda == 2) {
 
                 ServiceVenda.exibirVendas();
+                if (ServiceVenda.getVendaList().size() == 0) {
+                    System.out.println("Não há vendas cadastradas\n");
+                }
                 break;
             }
             if (opcaoVenda == 3) {
@@ -158,26 +168,28 @@ public class Sistema {
             if (opcaoVenda == 4) {
 
                 System.out.println(pesquisarVenda());
+
                 break;
             }
             if (opcaoVenda == 5) {
 
-                menu = false;
+
                 encerrarMenus();
-                break;
+                menu = false;
+                executar();
+
 
             }
+            break;
         }
 
     }
 
-
-
     public static void executar() throws Exception {
-        boolean menu = true;
+        boolean menuPrincipal = true;
         menuInicial();
         int opcaoMenuInicial = obterDados("\nDigite a opção desejada:").nextInt();
-        while (menu) {
+        while (menuPrincipal) {
             if (opcaoMenuInicial == 1) {
                 operacaoCliente();
 
@@ -191,11 +203,11 @@ public class Sistema {
             } else if (opcaoMenuInicial == 4) {
 
                 encerrarMenuPrincipal();
-                menu = false;
-            } else {
+                menuPrincipal = false;
 
-                throw new Exception("Digite uma opção válida do menu");
+
             }
+            break;
         }
     }
 

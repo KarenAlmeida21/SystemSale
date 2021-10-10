@@ -7,6 +7,11 @@ import java.util.concurrent.Callable;
 public class ServiceCliente {
     private static List<Cliente> clientesList = new ArrayList<>();
 
+    public static List<Cliente> getClientesList() {
+        return clientesList;
+    }
+
+
     //cadastrar cliente na lista
     public static Cliente cadastrarCliente(String nome, String cpf, String email) throws Exception {
         constatarClienteCpf(cpf);
@@ -39,9 +44,10 @@ public class ServiceCliente {
             }
         }
     }
-    public static void constatarClienteEmail(String email)throws Exception{
-        for (Cliente clienteReferencia :clientesList){
-            if(clienteReferencia.getEmail().equals(email)){
+
+    public static void constatarClienteEmail(String email) throws Exception {
+        for (Cliente clienteReferencia : clientesList) {
+            if (clienteReferencia.getEmail().equals(email)) {
                 throw new Exception("E-mail já cadastrado.Verifique cadastro");
             }
         }
@@ -49,16 +55,15 @@ public class ServiceCliente {
 
 
     //exibir lista de cliente
-    public static List<Cliente> exibirClientes()throws Exception{
-       // List<Cliente> clientes = new ArrayList<>();
-        for (Cliente clienteReferencia : clientesList){
+    public static List<Cliente> exibirClientes() throws Exception {
+        for (Cliente clienteReferencia : clientesList) {
             clientesList.add(clienteReferencia);
-            System.out.println(clienteReferencia);}
+            System.out.println(clienteReferencia);
+        }
 
 
         return clientesList;
     }
-
 
 
 }
