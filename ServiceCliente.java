@@ -11,6 +11,7 @@ public class ServiceCliente {
     }
 
     public static void setClientesList(List<Cliente> clientesList) {
+
         ServiceCliente.clientesList = clientesList;
     }
 
@@ -60,13 +61,12 @@ public class ServiceCliente {
 
 
     //exibir lista de cliente
-    public static void exibirCliente(){
-        for (Cliente clienteReferencia:clientesList) {
+    public static void exibirCliente() {
+        for (Cliente clienteReferencia : clientesList) {
             System.out.println(clienteReferencia);
 
         }
     }
-
 
 
 }

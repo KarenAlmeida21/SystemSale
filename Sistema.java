@@ -1,8 +1,12 @@
 package SystemSale;
 
-import java.sql.SQLOutput;
+
+
+
 import java.util.List;
 import java.util.Scanner;
+
+
 
 public class Sistema {
     private static Scanner obterDados(String mensagem) {
@@ -10,12 +14,16 @@ public class Sistema {
         return new Scanner(System.in);
     }
 
+
     public static void encerrarMenus() {
         System.out.println("Você será direcionado ao menu anterior\n");
     }
 
     public static void encerrarMenuPrincipal() {
         System.out.println("Obrigado.Volte sempre.\n");
+    }
+    public static void opcaoInvalida(){
+        System.out.println("Digite uma opção do menu");
     }
 
 
@@ -37,6 +45,7 @@ public class Sistema {
 
     public static Venda cadastrarVenda() throws Exception {
         String dataDaCompra = obterDados("Digite a data da compra").nextLine();
+
         System.out.println("Digite o valor da compra");
         double valorDaCompra = obterDados("R$ ").nextDouble();
         String cpfVendedor = obterDados("Digite o CPF do vendedor responsável pela venda").nextLine();
@@ -61,10 +70,11 @@ public class Sistema {
 
 
     public static void menuInicial() {
+        System.out.println("Sistema de Cadastro Lojas Baby");
         System.out.println("Digite 1 para Clientes");
         System.out.println("Digite 2 para Vendedores");
-        System.out.println("Digite 3 para Vendas");
-        System.out.println("Digite 4 para Sair");
+        System.out.println("Digite 3 para Compras e Vendas");
+        System.out.println("Digite 4 para Fechar o Sistema");
     }
 
     public static void menuCliente() {
@@ -97,6 +107,9 @@ public class Sistema {
                 encerrarMenus();
                 menu = false;
                 executar();
+            }else{
+                opcaoInvalida();
+                break;
             }
         }
     }
@@ -129,6 +142,10 @@ public class Sistema {
                 encerrarMenus();
                 menu = false;
                 executar();
+            }else{
+                opcaoInvalida();
+                break;
+
             }
         }
     }
@@ -171,13 +188,15 @@ public class Sistema {
 
                 System.out.println(pesquisarVenda());
                 break;
-            }
-            if (opcaoVenda == 5) {
+            }else if(opcaoVenda == 5) {
 
                 encerrarMenus();
                 menu = false;
                 executar();
 
+            }else{
+                opcaoInvalida();
+                break;
             }
         }
     }
@@ -205,10 +224,14 @@ public class Sistema {
 
 
 
+            }else{
+                opcaoInvalida();
+                break;
             }
             break;
 
         }
+
 
         return menuPrincipal;
 

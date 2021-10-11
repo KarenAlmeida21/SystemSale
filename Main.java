@@ -2,11 +2,11 @@ package SystemSale;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        boolean menuPrincipal = true;
-        while (menuPrincipal) {
+        boolean continuar = true;
+        while (continuar) {
             try {
 
-                menuPrincipal=Sistema.executar();
+                continuar=Sistema.executar();
 
             } catch (Exception erro) {
                 System.out.println(erro.getMessage());
