@@ -1,14 +1,16 @@
 package SystemSale;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+        boolean menuPrincipal = true;
+        while (menuPrincipal) {
+            try {
 
-        try {
+                menuPrincipal=Sistema.executar();
 
-            Sistema.executar();
-
-        } catch (Exception erro) {
-            System.out.println(erro.getMessage());
+            } catch (Exception erro) {
+                System.out.println(erro.getMessage());
+            }
         }
     }
 }

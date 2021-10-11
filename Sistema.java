@@ -48,15 +48,15 @@ public class Sistema {
     public static List<Venda> pesquisarVenda() throws Exception {
         String cpf = obterDados("Digite o CPF vendedor que deseja pesquisar:").nextLine();
         ServiceVendedor.verificarVendedorCpf(cpf);
-        List<Venda> vendasDoVendedor = ServiceVenda.pesquisarVendaCpf(cpf);
-        return vendasDoVendedor;
+        List<Venda> vendaList = ServiceVenda.pesquisarVendaCpf(cpf);
+        return vendaList;
     }
 
     public static List<Venda> pesquisarCompra() throws Exception {
         String cpf = obterDados("Digite o CPF do cliente que deseja pesquisar:").nextLine();
         ServiceCliente.verificarClienteCpf(cpf);
-        List<Venda> comprasDoCliente = ServiceVenda.pesquisarComprasCpf(cpf);
-        return comprasDoCliente;
+        List<Venda> vendaList = ServiceVenda.pesquisarComprasCpf(cpf);
+        return vendaList;
     }
 
 
@@ -182,7 +182,7 @@ public class Sistema {
         }
     }
 
-    public static void executar() throws Exception {
+    public static boolean executar() throws Exception {
         boolean menuPrincipal = true;
         menuInicial();
         int opcaoMenuInicial = obterDados("\nDigite a opção desejada:").nextInt();
@@ -203,8 +203,15 @@ public class Sistema {
                 menuPrincipal = false;
 
 
+
+
             }
+            break;
+
         }
+
+        return menuPrincipal;
+
     }
 
 

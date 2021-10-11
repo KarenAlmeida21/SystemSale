@@ -2,7 +2,6 @@ package SystemSale;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Callable;
 
 public class ServiceCliente {
     private static List<Cliente> clientesList = new ArrayList<>();
@@ -24,8 +23,6 @@ public class ServiceCliente {
         clientesList.add(cliente);
         return cliente;
     }
-
-
 
     public static Cliente verificarClienteCpf(String cpf) throws Exception {
         for (Cliente clienteReferencia : clientesList) {

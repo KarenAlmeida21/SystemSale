@@ -22,24 +22,26 @@ public class ServiceVenda {
     }
 
     public static List<Venda> pesquisarVendaCpf(String cpf) throws Exception {
-        List<Venda> vendasDoVendedor = new ArrayList<>();
-        for (Venda vendaReferencia : vendasDoVendedor) {
+        List<Venda> vendasVendedor = new ArrayList<>();
+        for (Venda vendaReferencia : vendaList) {
             if (vendaReferencia.getVendedor().getCpf().equals(cpf)) {
-                vendasDoVendedor.add(vendaReferencia);
+                vendasVendedor.add(vendaReferencia);
+
+
             }
         }
-        return vendasDoVendedor;
+        return vendasVendedor;
     }
 
     public static List<Venda> pesquisarComprasCpf(String cpf) throws Exception {
-        List<Venda> comprasDoCliente = new ArrayList<>();
-        for (Venda compraReferencia : comprasDoCliente) {
+        List<Venda> comprasCliente = new ArrayList<>();
+        for (Venda compraReferencia : vendaList) {
             if (compraReferencia.getCliente().getCpf().equals(cpf)) {
-                comprasDoCliente.add(compraReferencia);
+                comprasCliente.add(compraReferencia);
+
             }
         }
-        return comprasDoCliente;
-
+        return comprasCliente;
     }
 
     //exibir lista de cliente
