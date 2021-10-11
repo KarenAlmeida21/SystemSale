@@ -1,8 +1,9 @@
 package SystemSale;
 
-import SistemaImobiliario.Funcionario;
+
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 public class Venda {
@@ -20,15 +21,18 @@ public class Venda {
         ValorDaCompra = valorDaCompra;
     }
 
+
     public Vendedor getVendedor() {
         return vendedor;
     }
 
     public void setVendedor(Vendedor vendedor) {
+
         this.vendedor = vendedor;
     }
 
     public Cliente getCliente() {
+
         return cliente;
     }
 
@@ -48,11 +52,10 @@ public class Venda {
         return ValorDaCompra;
     }
 
-    public void setValorDaCompra(double valorDaCompra) {
+    public void setValorDaCompra(
+            double valorDaCompra) {
         ValorDaCompra = valorDaCompra;
     }
-
-
 
     @Override
     public String toString() {

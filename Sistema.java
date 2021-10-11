@@ -4,6 +4,7 @@ package SystemSale;
 
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 
@@ -54,6 +55,9 @@ public class Sistema {
 
     }
 
+
+
+
     public static List<Venda> pesquisarVenda() throws Exception {
         String cpf = obterDados("Digite o CPF vendedor que deseja pesquisar:").nextLine();
         ServiceVendedor.verificarVendedorCpf(cpf);
@@ -70,11 +74,11 @@ public class Sistema {
 
 
     public static void menuInicial() {
-        System.out.println("Sistema de Cadastro Lojas Baby");
-        System.out.println("Digite 1 para Clientes");
-        System.out.println("Digite 2 para Vendedores");
-        System.out.println("Digite 3 para Compras e Vendas");
-        System.out.println("Digite 4 para Fechar o Sistema");
+        System.out.println("Sistema de Cadastro Lojas Baby\n");
+        System.out.println("Escreva cliente");
+        System.out.println("Escreva vendedores");
+        System.out.println("Escreva Compras ou Vendas");
+        System.out.println("Escreva sair");
     }
 
     public static void menuCliente() {
@@ -163,10 +167,11 @@ public class Sistema {
     public static void operacaoVenda() throws Exception {
         boolean menu = true;
         menuVenda();
+             System.out.println("Digite 4 para Fechar o Sistema");
 
         while (menu) {
             int opcaoVenda = obterDados("\nDigite a opçao desejada:").nextInt();
-            if (opcaoVenda == 1) {
+            if (opcaoVenda==1) {
 
                 cadastrarVenda();
                 break;
@@ -204,25 +209,24 @@ public class Sistema {
     public static boolean executar() throws Exception {
         boolean menuPrincipal = true;
         menuInicial();
-        int opcaoMenuInicial = obterDados("\nDigite a opção desejada:").nextInt();
+
+
+String opcaoMenuInicial = obterDados("Escreva a opção que você quer acessar ").nextLine();
         while (menuPrincipal) {
-            if (opcaoMenuInicial == 1) {
+            if (opcaoMenuInicial.contains("clientes")) {
                 operacaoCliente();
 
             }
-            if (opcaoMenuInicial == 2) {
+            if (opcaoMenuInicial.contains("vendedores")) {
                 operacaoVendedor();
 
-            } else if (opcaoMenuInicial == 3) {
+            } else if (opcaoMenuInicial.contains("vendas")|opcaoMenuInicial.contains("compras") ) {
                 operacaoVenda();
 
-            } else if (opcaoMenuInicial == 4) {
+            } else if (opcaoMenuInicial.contains("sair") ) {
 
                 encerrarMenuPrincipal();
                 menuPrincipal = false;
-
-
-
 
             }else{
                 opcaoInvalida();

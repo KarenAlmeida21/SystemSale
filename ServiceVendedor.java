@@ -49,6 +49,7 @@ public class ServiceVendedor {
         }
     }
 
+
     public static void constatarVendedorEmail(String email) throws Exception {
         for (Vendedor vendedorReferencia : vendedorList) {
             if (vendedorReferencia.getEmail().equals(email)) {

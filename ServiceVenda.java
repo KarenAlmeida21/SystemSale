@@ -17,7 +17,7 @@ public class ServiceVenda {
 
     public static Venda cadastrarVenda(String datadaCompra, double valorDaCompra, String cpfVendedor, String cpfCliente) throws Exception {
         Cliente cliente = ServiceCliente.verificarClienteCpf(cpfCliente);
-        Vendedor vendedor = ServiceVendedor.verificarVendedorCpf(cpfVendedor);
+        Vendedor vendedor = ServiceVendedor.verificarVendedorCpf(cpfVendedor);;
         Venda venda = new Venda(vendedor, cliente, datadaCompra, valorDaCompra);
         vendaList.add(venda);
         return venda;
@@ -53,6 +53,7 @@ public class ServiceVenda {
 
         }
     }
+
 }
 
 
