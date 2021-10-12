@@ -1,12 +1,8 @@
 package SystemSale;
 
 
-
-
 import java.util.List;
-import java.util.Locale;
 import java.util.Scanner;
-
 
 
 public class Sistema {
@@ -23,7 +19,8 @@ public class Sistema {
     public static void encerrarMenuPrincipal() {
         System.out.println("Obrigado.Volte sempre.\n");
     }
-    public static void opcaoInvalida(){
+
+    public static void opcaoInvalida() {
         System.out.println("Digite uma opção do menu");
     }
 
@@ -54,9 +51,6 @@ public class Sistema {
         return ServiceVenda.cadastrarVenda(dataDaCompra, valorDaCompra, cpfVendedor, cpfCliente);
 
     }
-
-
-
 
     public static List<Venda> pesquisarVenda() throws Exception {
         String cpf = obterDados("Digite o CPF vendedor que deseja pesquisar:").nextLine();
@@ -111,7 +105,7 @@ public class Sistema {
                 encerrarMenus();
                 menu = false;
                 executar();
-            }else{
+            } else {
                 opcaoInvalida();
                 break;
             }
@@ -146,7 +140,7 @@ public class Sistema {
                 encerrarMenus();
                 menu = false;
                 executar();
-            }else{
+            } else {
                 opcaoInvalida();
                 break;
 
@@ -167,11 +161,11 @@ public class Sistema {
     public static void operacaoVenda() throws Exception {
         boolean menu = true;
         menuVenda();
-             System.out.println("Digite 4 para Fechar o Sistema");
+        System.out.println("Digite 4 para Fechar o Sistema");
 
         while (menu) {
             int opcaoVenda = obterDados("\nDigite a opçao desejada:").nextInt();
-            if (opcaoVenda==1) {
+            if (opcaoVenda == 1) {
 
                 cadastrarVenda();
                 break;
@@ -193,13 +187,13 @@ public class Sistema {
 
                 System.out.println(pesquisarVenda());
                 break;
-            }else if(opcaoVenda == 5) {
+            } else if (opcaoVenda == 5) {
 
                 encerrarMenus();
                 menu = false;
                 executar();
 
-            }else{
+            } else {
                 opcaoInvalida();
                 break;
             }
@@ -211,24 +205,24 @@ public class Sistema {
         menuInicial();
 
 
-String opcaoMenuInicial = obterDados("Escreva a opção que você quer acessar ").nextLine();
+        String opcaoMenuInicial = obterDados("Escreva a opção que você quer acessar ").nextLine();
         while (menuPrincipal) {
-            if (opcaoMenuInicial.contains("clientes")) {
+            if (opcaoMenuInicial.equalsIgnoreCase("clientes")) {
                 operacaoCliente();
 
             }
-            if (opcaoMenuInicial.contains("vendedores")) {
+            if (opcaoMenuInicial.equalsIgnoreCase("vendedores")) {
                 operacaoVendedor();
 
-            } else if (opcaoMenuInicial.contains("vendas")|opcaoMenuInicial.contains("compras") ) {
+            } else if (opcaoMenuInicial.equalsIgnoreCase("vendas") | opcaoMenuInicial.equalsIgnoreCase("compras")) {
                 operacaoVenda();
 
-            } else if (opcaoMenuInicial.contains("sair") ) {
+            } else if (opcaoMenuInicial.contains("sair")) {
 
                 encerrarMenuPrincipal();
                 menuPrincipal = false;
 
-            }else{
+            } else {
                 opcaoInvalida();
                 break;
             }
